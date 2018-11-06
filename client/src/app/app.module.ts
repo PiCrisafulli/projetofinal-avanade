@@ -15,11 +15,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConfigComponent } from './config/config.component';
 import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [{
   path:'', component: HomeComponent,},
   {path: 'register', component: RegisterComponent,},
-  {path: 'login',  component: LoginComponent,
+  {path: 'login',  component: LoginComponent,},
+  {path: 'about', component: AboutComponent,
 }];
 
 @NgModule({
@@ -35,7 +37,8 @@ const appRoutes: Routes = [{
     SearchComponent,
     ConfigComponent,
     HeaderComponent,
-    MapComponent
+    MapComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

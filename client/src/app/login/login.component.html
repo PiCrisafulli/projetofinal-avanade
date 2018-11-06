@@ -1,7 +1,7 @@
 <div class = "login-container">
-  <button (click)="facebookLogin()" id="facebook">Entrar com Facebook</button><br>
-  <button (click)="googleLogin()" id="google">Entrar com Google</button><br>
-  <button routerLink="" id="email">Email</button>
+  <button (click)="facebookLogin()" class="login-btn" id="facebook">Entrar com Facebook</button><br>
+  <button (click)="googleLogin()" class="login-btn" id="google">Entrar com Google</button><br>
+  <button routerLink="" class="login-btn" id="email">Email</button>
   <a routerLink="/register" routerLinkActive="active" class="noAccount-register">Não tem uma conta?<strong>Crie já uma</strong></a>
-  
+  <app-footer></app-footer>
 </div>
