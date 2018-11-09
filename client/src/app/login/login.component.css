@@ -1,6 +1,7 @@
-body {
-    background:#E2E4E6;
-    padding-top:4em;
+.background {
+    width: 100%;
+    height: 900px;
+    background-image: url("../../assets/Images/bg-login.png");
 }
 
 .login-container{
