@@ -23,6 +23,8 @@
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
+    "mongoose": "^5.3.10",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
