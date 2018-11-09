@@ -70,11 +70,22 @@ class DatabaseMongoDB {
         const connection = Mongoose.connection
         connection.once('open', () => console.log('bd running'))
 
-        const postModel = Mongoose.model('posts', postSchema)
         const userModel = Mongoose.model('users', userSchema)
+        const friendModel = Mongoose.model('friends', friendsSchema)
+        const placeModel = Mongoose.model('places', placesSchema)
+        const commentModel = Mongoose.model('comments', commentsSchema)
+        const imageModel = Mongoose.model('images', imagesSchema)
+        const videoModel = Mongoose.model('videos', videosSchema)
+        const postModel = Mongoose.model('posts', postSchema)
+
         return {
-            postModel,
-            userModel
+            userModel,
+            friendModel,
+            placeModel,
+            commentModel,
+            imageModel,
+            videoModel,
+            postModel
         };
     }
 
