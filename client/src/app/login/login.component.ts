@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-login',
@@ -10,16 +12,19 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('.collapsible').collapsible();
+    });
   }
 
-  facebookLogin(){
+  facebookLogin() {
 
   }
-  googleLogin(){
+  googleLogin() {
 
   }
-  emailLogin(){
-    
+  emailLogin() {
+
   }
 
 }
