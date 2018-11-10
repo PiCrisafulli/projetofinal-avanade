@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
+    "jquery": "^3.3.1",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.3.10",
     "request": "^2.88.0",

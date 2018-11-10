@@ -17,12 +17,17 @@ import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 import { AboutComponent } from './about/about.component';
 
-const appRoutes: Routes = [{
-  path:'', component: HomeComponent,},
-  {path: 'register', component: RegisterComponent,},
-  {path: 'login',  component: LoginComponent,},
-  {path: 'about', component: AboutComponent,
-}];
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'post', component: PostsComponent },
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   declarations: [
@@ -40,12 +45,8 @@ const appRoutes: Routes = [{
     MapComponent,
     AboutComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
-  ],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
