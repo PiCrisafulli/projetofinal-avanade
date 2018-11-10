@@ -16,6 +16,8 @@ import { ConfigComponent } from './config/config.component';
 import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 import { AboutComponent } from './about/about.component';
+import { PostComponent } from './posts/post/post.component';
+import { CommentComponent } from './comment/comment.component';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'post', component: PostsComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'post', component: PostComponent },
   { path: '**', redirectTo: '' }
 ];
 
@@ -43,10 +46,12 @@ const appRoutes: Routes = [
     ConfigComponent,
     HeaderComponent,
     MapComponent,
-    AboutComponent
+    AboutComponent,
+    PostComponent,
+    CommentComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
