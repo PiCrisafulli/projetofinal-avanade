@@ -16,6 +16,7 @@ import { ConfigComponent } from './config/config.component';
 import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 import { AboutComponent } from './about/about.component';
+import { PostComponent } from './posts/post/post.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     ConfigComponent,
     HeaderComponent,
     MapComponent,
-    AboutComponent
+    AboutComponent,
+    PostComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
