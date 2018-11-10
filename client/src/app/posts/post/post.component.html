@@ -30,26 +30,19 @@
           <div class="likes">
             <i class="fas fa-heart"></i> <span class="count">20</span>
           </div>
-          <div class="comments">
+          <div class="comments" (click)="open()" style="cursor: pointer">
             <i class="far fa-comment-dots"></i><span class="count">5</span>
           </div>
         </div>
       </div>
+      <ul class="collapsible">
+        <li>
+          <!-- <div class="collapsible-header">First</div> -->
+          <div class="collapsible-body">
+            <div *ngFor="let item of comments"><app-comment></app-comment></div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
-
-<ul class="collapsible">
-  <li>
-    <div class="collapsible-header">First</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-  <li>
-    <div class="collapsible-header">Second</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-  <li>
-    <div class="collapsible-header">Third</div>
-    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-  </li>
-</ul>

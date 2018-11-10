@@ -9,10 +9,20 @@ declare var $: any;
 })
 export class PostComponent implements OnInit {
   constructor() {}
-
+  collapseComments: boolean = false;
+  comments = [0, 1, 2, 3, 4];
   ngOnInit() {
     $(document).ready(function() {
       $('.collapsible').collapsible();
     });
+  }
+
+  open() {
+    this.collapseComments = !this.collapseComments;
+    if (this.collapseComments) {
+      $('.collapsible').collapsible('open', 0);
+    } else {
+      $('.collapsible').collapsible('close', 0);
+    }
   }
 }

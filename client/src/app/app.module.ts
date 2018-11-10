@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './map/map.component';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './posts/post/post.component';
+import { CommentComponent } from './comment/comment.component';
 
 const appRoutes: Routes = [
   {
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     MapComponent,
     AboutComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
