@@ -27,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'post', component: PostsComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'post', component: PostComponent },
   { path: '**', redirectTo: '' }
 ];
 
@@ -53,4 +54,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
