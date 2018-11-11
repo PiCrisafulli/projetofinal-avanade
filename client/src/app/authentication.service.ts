@@ -59,10 +59,10 @@ export class AuthenticationService {
         let base;
         switch (method) {
             case 'post':
-                base = this.http.post(`http://localhost:27017/socialnetwork/${type}`, user);
+                base = this.http.post(`http://localhost:3000/api/${type}`, user);
                 break;
             case 'get':
-                base = this.http.get(`http://localhost:27017/socialnetwork/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } })
+                base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } })
                 break;
         }
 

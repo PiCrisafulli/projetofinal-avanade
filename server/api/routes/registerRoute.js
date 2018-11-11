@@ -1,11 +1,11 @@
 const validate = require('./validates/validates');
 module.exports = [{
     method: 'POST',
-    path: '/api/users',
+    path: '/api/register',
     handler: async (request, h) => {
         try {
             const { id } = request.params;
-            const result = await users.listar({ _id: id });
+            const result = await users.cadastrar({ _id: id });
             return result;
         }
         catch (err) {

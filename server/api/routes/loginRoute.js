@@ -24,7 +24,7 @@ module.exports = [{
 },
 {
     method: 'GET',
-    path: '/api/users/{id}',
+    path: '/api/login/{id}',
     handler: async (request, h) => {
         try {
             const item = request.payload;
