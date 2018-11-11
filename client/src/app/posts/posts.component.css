@@ -1,0 +1,37 @@
+.card-header {
+  display: flex;
+  padding: 5px;
+}
+
+.card-header img {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.card-header .info {
+  display: inline-block;
+  margin-left: 10px;
+}
+.card-header .name {
+  display: block;
+  width: 100%;
+}
+
+.places {
+  font-size: 1.1em;
+}
+.fa-map-marker-alt {
+  color: #dd5656;
+}
+
+.see-more {
+  font-weight: 300;
+  font-size: small;
+  cursor: pointer;
+}
+
+.card-title.friends.title-default,
+.places .card-title.title-default {
+  font-weight: 400;
+}

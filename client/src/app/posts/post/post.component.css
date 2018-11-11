@@ -11,7 +11,6 @@
   width: 50px;
   height: 50px;
   display: inline-block;
-  border-radius: 25px;
 }
 
 .card-header .info {
@@ -19,7 +18,6 @@
   margin-left: 10px;
 }
 .card-header .name {
-  color: #0000ff;
   display: block;
   width: 100%;
 }
@@ -56,4 +54,16 @@
   border-color: transparent;
   box-shadow: none;
   border-bottom-width: 0;
+}
+
+/* label focus color */
+.input-field input:focus + label,
+.input-field textarea:focus + label {
+  color: #0c3ea3;
+}
+/* label underline focus color */
+.input-field input:focus,
+.input-field textarea:focus {
+  border-bottom: 1px solid #0c3ea3;
+  box-shadow: 0 1px 0 0 #0c3ea3;
 }
