@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --deep-purple: #673ab7;
+}
+
+.body {
+  overflow-x: hidden;
+}
+
 .title-default {
   color: #0c3ea3;
   font-weight: bold;
 }
+
