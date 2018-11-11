@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AuthenticationService, TokenPayloadLogin, TokenPayloadRegister } from '../authentication.service';
+import { Router } from '@angular/router';
 declare var jquery: any;
 declare var $: any;
 
@@ -9,14 +11,27 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  credentialsLogin: TokenPayloadLogin = {
+    email: '',
+    password: '',
+  };
+
+  credentialsRegister: TokenPayloadRegister = {
+    name: '',
+    email: '',
+    password: '',
+  }
+
+  defaultAlert = 'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
+
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
       $('.collapsible').collapsible();
     });
 
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('.tooltipped').tooltip();
     });
   }
@@ -28,7 +43,26 @@ export class LoginComponent implements OnInit {
 
   }
   emailLogin() {
-
+    this.auth.login(this.credentialsLogin).subscribe(() => {
+      this.router.navigateByUrl('/home');
+    }, err => {
+      switch (err.code) {
+        default:
+          alert(this.defaultAlert);
+          break;
+      }
+    });
+  }
+  register() {
+    this.auth.register(this.credentialsRegister).subscribe(() => {
+      this.router.navigateByUrl('/register');
+    }, err => {
+      switch (err.code) {
+        default:
+          alert(this.defaultAlert);
+          break;
+      }
+    });
   }
 
 }
