@@ -1,16 +1,16 @@
 <div class="background">
   <div class="container">
     <div class="row">
-      <img src="../../assets/Images/logo.png" class="logo">
+      <img src="../../assets/Images/logo_white.png" class="logo">
     </div>
-    <div class="row">
-      <div class="col s6 banner">
+    <div class="row row-flex">
+      <div class="col m6 col-banner">
         <img src="../../assets/Images/viajei-banner.png" class="banner-img">
       </div>
-      <div class="col s6">
+      <div class="col m6 s12 col-login">
         <ul class="collapsible">
           <li class="active">
-            <div class="collapsible-header"><span>Entrar</span></div>
+            <div class="collapsible-header deep-purple lighten-1"><span>Entrar</span></div>
             <div class="collapsible-body grey lighten-5">
               <div class="row">
                 <form class="col s12">
@@ -52,31 +52,31 @@
             </div>
           </li>
           <li>
-            <div class="collapsible-header"><span>Cadastrar</span></div>
+            <div class="collapsible-header deep-purple lighten-1"><span>Cadastrar</span></div>
             <div class="collapsible-body grey lighten-5">
-              <div class="row">
+              <div class="row row-margin">
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="name" type="text" class="validate" required>
+                      <input ng-model="name" id="name" type="text" class="validate" required>
                       <label for="name">Nome</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email" type="email" class="validate" required>
+                      <input ng-model="email" id="email" type="email" class="validate" required>
                       <label for="email">Email</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="password" type="password" class="validate" required>
+                      <input ng-model="password" id="password" type="password" class="validate" required>
                       <label for="password">Senha</label>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row row-margin">
                     <div class="input-field col s12">
-                      <button class="btn right deep-purple">Cadastrar</button>
+                      <button class="btn right deep-purple" routerLink="/cadastro">Cadastrar</button>
                     </div>
                   </div>
                 </form>
@@ -89,4 +89,5 @@
     </div>
     <app-footer></app-footer>
   </div>
+  
 </div>

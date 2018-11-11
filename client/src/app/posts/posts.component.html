@@ -1,9 +1,57 @@
 <section class="container">
-    <div class="row">
-        <div class="col m12 l8">
-            <app-post></app-post>
-        </div>
-
-        <div class="col m12 l4"><img class="responsive-img" src="../../assets/users/icon1.png"></div>
+  <div class="row">
+    <div class="col m12 l8">
+      <div *ngFor="let item of posts; let i = index">
+        <app-post
+          [video]="i === 2 ? true : false"
+          [text]="true"
+          [image]="i === 0 ? true : false"
+          [index]="i"
+        ></app-post>
+      </div>
     </div>
+
+    <div class="col m12 l4">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title friends title-default"
+                >Amigos de Arthur Dent</span
+              >
+
+              <div class="card-header" *ngFor="let item of friends">
+                <img
+                  class="circle responsive-img"
+                  src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+                  alt="photo user"
+                />
+                <div class="info">
+                  <div class="name title-default">Arthur Dent</div>
+                  <span>mochileiro lvl 30</span>
+                </div>
+              </div>
+              <span class="title-default see-more" (click)="loadMoreFriends()"
+                >Ver mais...</span
+              >
+            </div>
+            <div class="card-action places">
+              <span class="card-title title-default"
+                >Lugares favoritos de Arthur Dent</span
+              >
+              <p *ngFor="let item of places">
+                <i class="fas fa-map-marker-alt"></i> Universe Restorant
+              </p>
+              <span class="title-default see-more" (click)="loadMorePlaces()"
+                >Ver mais...</span
+              >
+            </div>
+            <!--
+              <div class="card-action">              <a href="#">This is a link</a> <a href="#">This is a link</a>            </div>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

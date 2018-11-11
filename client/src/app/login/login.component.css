@@ -1,6 +1,6 @@
 .background {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to left, rgba(255,255,255, .15), rgba(255,255,255, .15)), url('../../assets/Images/bg-login.png') center center;
 }
 
@@ -8,23 +8,33 @@
   width: 90%;
 }
 
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 95%;
+  }
+}
+
 .row {
   margin-bottom: 15px;
+}
+
+.row-flex {
+  display: flex;
 }
 
 .logo {
   max-height: 80px;
 }
 
-.banner {
-  height: 100vh;
+.col-banner {
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 50%;
 }
 
 .banner-img {
-  width: 80%;
+  width: 85%;
 }
 
 .collapsible {
@@ -32,8 +42,22 @@
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 1000px) {
+  .banner-img {
+    width: 95%;
+  }
+  .collapsible {
+    max-width: 90%;
+  } 
+}
+
+@media only screen and (max-width: 600px) {
+  .col-banner {
+    display: none;
+  }
+}
+
 .collapsible-header {
-  background-color: #7e57c2;
   color: #fff;
   font-size: 1.3em;
   text-transform: uppercase;
@@ -63,16 +87,17 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  color: #673ab7;
+  color: var(--deep-purple);
   transition: all .3s;
 }
 
 .fab:hover {
   color: #fff;
-  background-color: #673ab7;
+  background-color: var(--deep-purple);
 }
 
-.login-social{
+.login-social,
+.row-margin {
   margin-bottom: 0;
 }
 
@@ -80,7 +105,7 @@
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #673ab7;
-  background-color: #673ab7;
+  border: 2px solid var(--deep-purple);
+  background-color: var(--deep-purple);
   z-index: 0;
 }
