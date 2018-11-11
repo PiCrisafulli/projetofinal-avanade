@@ -8,7 +8,7 @@ export class PostService {
   constructor(
     private http: HttpClient,
     private envService: EnvironmentService
-  ) {}
+  ) { }
 
   getPosts(params) {
     return this.http.get(this.envService.env['host'] + 'album/pesquisarAlbum', {

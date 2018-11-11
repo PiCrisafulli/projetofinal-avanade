@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 
 export interface TokenPayloadLogin {
@@ -17,7 +17,9 @@ export interface TokenPayloadRegister {
 export interface TokenPayloadProfile {
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthenticationService {
 
     private token: string;
@@ -57,10 +59,10 @@ export class AuthenticationService {
         let base;
         switch (method) {
             case 'post':
-                base = this.http.post(`27017/socialnetwork/api/${type}`, user);
+                base = this.http.post(`http://localhost:27017/socialnetwork/${type}`, user);
                 break;
             case 'get':
-                base = this.http.get(`27017/socialnetwork/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } })
+                base = this.http.get(`http://localhost:27017/socialnetwork/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } })
                 break;
         }
 

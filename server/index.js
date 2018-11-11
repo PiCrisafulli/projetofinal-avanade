@@ -129,12 +129,10 @@ async function main() {
         await app.start()
         info(`Servidor rodando em: ${app.info.port}`)
 
-        //await new Promise(resolve => setTimeout(resolve, 2000));
-
         return app;
     }
-    catch (error) {
-        error(`ERRO API ${error.message}`)
+    catch (err) {
+        // err(`ERRO API ${err.message}`)
     }
 }
 

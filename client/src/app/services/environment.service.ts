@@ -15,11 +15,11 @@ export class EnvironmentService {
   getEnvironment() {
     if (isDevMode()) {
       return (this.env = {
-        host: environment.host
+        //host: environment.host
       });
     } else {
       return (this.env = {
-        host: environmentProd.host
+        // host: environmentProd.host
       });
     }
   }

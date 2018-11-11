@@ -4,6 +4,13 @@ function validateHeaders() {
     }).unknown();
 };
 
+function validateApiLogin() {
+    return {
+        username: Joi.string().max(50).required(),
+        password: Joi.string().max(100).required()
+    }
+}
+
 function validateUserPayload() {
     return {
         name: Joi.string().required(),

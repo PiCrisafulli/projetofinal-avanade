@@ -20,11 +20,11 @@ module.exports = [{
         description: 'Cadastra um usuário',
         notes: 'Faz o cadastro de um usuário',
         validate: {
-            headers: validate.validateHeaders(),
+            headers: validate.validateHeaders,
             failAction: (request, h, err) => {
                 throw err;
             },
-            payload: validate.validateUserPayload(),
+            payload: validate.validateUserPayload,
         }
     }
 }]

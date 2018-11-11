@@ -9,7 +9,7 @@ declare var $: any;
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService) { }
 
   friends = [0, 1, 2, 3];
   places = [0, 1];
@@ -22,7 +22,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.newPost);
-    $(document).ready(function() {
+    $(document).ready(function () {
       $(`[class^=collapsible]`).collapsible();
     });
   }

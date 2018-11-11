@@ -18,10 +18,7 @@ module.exports = [{
         tags: ['api'],
         description: 'Deve gerar um token para o usuário',
         validate: {
-            payload: {
-                username: Joi.string().max(50).required(),
-                password: Joi.string().max(100).required()
-            }
+            payload: validate.validateApiLogin,
         }
     }
 },
@@ -46,11 +43,11 @@ module.exports = [{
         description: 'Verifica um usuário',
         notes: 'Verifica um usuário de acordo com seu id',
         validate: {
-            headers: validate.validateHeaders(),
+            headers: validate.validateHeaders,
             failAction: (request, h, err) => {
                 throw err;
             },
-            payload: validate.validateUserPayload(),
+            payload: validate.validateUserPayload,
         }
     }
 }]

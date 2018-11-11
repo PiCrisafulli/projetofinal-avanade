@@ -34,7 +34,7 @@
                       </label>
                     </div>
                     <div class="input-field col s6">
-                      <button class="btn right deep-purple">Enviar</button>
+                      <button class="btn right deep-purple" (click)="emailLogin()">Enviar</button>
                     </div>
                   </div>
                 </form>
@@ -76,7 +76,7 @@
                   </div>
                   <div class="row row-margin">
                     <div class="input-field col s12">
-                      <button class="btn right deep-purple" routerLink="/cadastro">Cadastrar</button>
+                      <button class="btn right deep-purple" (click)="register()" routerLink="/cadastro">Cadastrar</button>
                     </div>
                   </div>
                 </form>
@@ -89,5 +89,5 @@
     </div>
     <app-footer></app-footer>
   </div>
-  
+
 </div>

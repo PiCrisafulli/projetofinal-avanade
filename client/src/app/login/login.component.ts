@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 
-  /* credentialsLogin: TokenPayloadLogin = {
+  credentialsLogin: TokenPayloadLogin = {
     email: '',
     password: '',
   };
@@ -20,12 +20,14 @@ export class LoginComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-  } */
+  }
 
   defaultAlert = 'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
 
-  // constructor(private auth: AuthenticationService, private router: Router) { }
-  constructor() { }
+  constructor(private auth: AuthenticationService, private router: Router) {
+
+  }
+  //constructor() { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -44,7 +46,8 @@ export class LoginComponent implements OnInit {
 
   }
   emailLogin() {
-    /* this.auth.login(this.credentialsLogin).subscribe(() => {
+    console.log("login happens");
+    this.auth.login(this.credentialsLogin).subscribe(() => {
       this.router.navigateByUrl('/home');
     }, err => {
       switch (err.code) {
@@ -52,10 +55,10 @@ export class LoginComponent implements OnInit {
           alert(this.defaultAlert);
           break;
       }
-    }); */
+    });
   }
   register() {
-   /*  this.auth.register(this.credentialsRegister).subscribe(() => {
+    this.auth.register(this.credentialsRegister).subscribe(() => {
       this.router.navigateByUrl('/register');
     }, err => {
       switch (err.code) {
@@ -63,7 +66,7 @@ export class LoginComponent implements OnInit {
           alert(this.defaultAlert);
           break;
       }
-    }); */
+    });
   }
 
 }
