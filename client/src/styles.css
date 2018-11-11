@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.title-default {
+  color: #0c3ea3;
+  font-weight: bold;
+}
