@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
     $(document).ready(function () {
       $('.collapsible').collapsible();
     });
+
+    $(document).ready(function(){
+      $('.tooltipped').tooltip();
+    });
   }
 
   facebookLogin() {
