@@ -73,7 +73,7 @@ module.exports = async () => {
 
       const Jwt = require('jsonwebtoken');
       const SECRET_KEY = process.env.JWT_KEY;
-      const USUARIO = {
+      const USER_ACESS_DATA = {
             username: process.env.USER_USERNAME,
             password: process.env.USER_PASSWORD
       };
@@ -162,7 +162,7 @@ module.exports = async () => {
                               const dataToken = {
                                     username
                               };
-                              const token = Jwt.sign(dataToken, MY_SECRET_KEY);
+                              const token = Jwt.sign(dataToken, SECRET_KEY);
 
                               return { token };
                         },

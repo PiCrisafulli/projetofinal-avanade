@@ -62,7 +62,7 @@ export class AuthenticationService {
             "username": "viajeiadm",
             "password": "stv10293845*"
         }
-        return this.http.post('http://localhost:3000/login', userAcess);
+        return this.http.post('http://localhost:3000/api/login', userAcess);
     }
 
     private request(method: 'post' | 'get', type: 'login' | 'register' | 'users', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {

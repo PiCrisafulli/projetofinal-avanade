@@ -107,11 +107,11 @@ module.exports = async () => {
 
     const app = new Hapi.Server({
       port: process.env.PORT,
-      // routes: {
-      //     cors: {
-      //         origin: ['*']
-      //     },
-      // }
+      routes: {
+        cors: {
+          origin: ['*']
+        },
+      }
     });
 
     await app.register([
