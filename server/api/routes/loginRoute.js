@@ -1,4 +1,5 @@
 const validate = require('./validates/validates');
+const Boom = require('boom')
 module.exports = [{
     method: 'POST',
     path: '/login',

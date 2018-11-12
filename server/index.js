@@ -1,20 +1,67 @@
 const { config } = require('dotenv');
 let swaggerHostConfig = {}
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
     config({ path: './config/.env.prod' });
 
     swaggerHostConfig.host = process.env.HOST;
     swaggerHostConfig.schemes = ['https'];
 
-} else { config({ path: './config/.env.dev' }) }
-
-const Hapi = require('hapi')
-const Boom = require('boom')
+} else { */ config({ path: './config/.env.dev' }) //}
 const Joi = require('joi')
+const Hapi = require('hapi')
 
 const Vision = require('vision')
 const Inert = require('inert')
 const HapiSwagger = require('hapi-swagger')
+//const validate = require('./validates/validates');
+const Boom = require('boom')
+
+
+
+function validateHeaders() {
+    return Joi.object({
+        authorization: Joi.string().required()
+    }).unknown();
+};
+
+function validateApiLogin() {
+    return {
+        username: Joi.string().max(50).required(),
+        password: Joi.string().max(100).required()
+    }
+}
+
+function validateUserPayload() {
+    return {
+        name: Joi.string().required(),
+        icon: Joi.string(),
+        email: Joi.string().required(),
+        dateBirth: Joi.date(),
+        sex: Joi.string(),
+        phoneNumber: Joi.string(),
+        typeLogin: Joi.string(),
+        password: Joi.string().min(3).max(20),
+        biography: Joi.string(),
+        publishedAt: Joi.date(),
+        modifiedAt: Joi.date(),
+    };
+}
+function validateUserPatchPayload() {
+    return {
+        name: Joi.string(),
+        icon: Joi.string(),
+        email: Joi.string(),
+        dateBirth: Joi.date(),
+        sex: Joi.string(),
+        phoneNumber: Joi.string(),
+        typeLogin: Joi.string(),
+        password: Joi.string().min(3).max(20),
+        biography: Joi.string(),
+        publishedAt: Joi.Date(),
+        modifiedAt: Joi.Date(),
+    };
+
+}
 
 //All Routes
 const loginRoute = require('./api/routes/loginRoute')
@@ -121,18 +168,49 @@ async function main() {
 
 
         app.route([
-            loginRoute,
-            registerRoute,
+            //loginRoute,
+            // registerRoute,
+            {
+                method: 'POST',
+                path: '/api/register',
+                handler: async (request, h) => {
+                    try {
+                        const { id } = request.params;
+                        const result = await users.cadastrar({ _id: id });
+                        return result;
+                    }
+                    catch (err) {
+                        const stringLog = getDataRequest(request, request.auth.credentials.username);
+                        logError(stringLog.path, { ...stringLog, err })
+
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Cadastra um usuário',
+                    notes: 'Faz o cadastro de um usuário',
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, err) => {
+                            throw err;
+                        },
+                        payload: validateUserPayload(),
+                    }
+                }
+            }
         ])
 
 
         await app.start()
         info(`Servidor rodando em: ${app.info.port}`)
 
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
         return app;
     }
     catch (err) {
-        // err(`ERRO API ${err.message}`)
+        console.log(err);
     }
 }
 
