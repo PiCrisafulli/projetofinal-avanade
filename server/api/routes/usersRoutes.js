@@ -172,7 +172,7 @@ module.exports = async () => {
         },
         config: {
           tags: ['api'],
-          description: 'Lista comentários paginados',
+          description: 'Lista usuários paginados',
           notes: 'Pode paginar, com limte e itens a ignorar',
           validate: {
             headers: validateHeaders(),
@@ -205,8 +205,8 @@ module.exports = async () => {
         },
         config: {
           tags: ['api'],
-          description: 'Cadastra comentário',
-          notes: 'Pode cadastrar um comentário',
+          description: 'Cadastra usuário',
+          notes: 'Pode cadastrar um usuário',
           validate: {
             headers: validateHeaders(),
             failAction: (request, h, err) => {
@@ -232,7 +232,7 @@ module.exports = async () => {
         },
         config: {
           tags: ['api'],
-          description: 'Vai remover comentário pelo id',
+          description: 'Vai remover usuário pelo id',
           notes: 'O id deve ser valido',
           validate: {
             headers: validateHeaders(),
@@ -262,7 +262,7 @@ module.exports = async () => {
         },
         config: {
           tags: ['api'],
-          description: 'Atualiza um comentário parcialmente',
+          description: 'Atualiza um usuário parcialmente',
           notes: 'deve passar um objeto valido',
           validate: {
             headers: validateHeaders(),
@@ -292,7 +292,7 @@ module.exports = async () => {
         },
         config: {
           tags: ['api'],
-          description: 'Obtem um comentário pelo id',
+          description: 'Obtem um usuário pelo id',
           notes: 'O id deve ser valido',
           validate: {
             headers: validateHeaders(),
