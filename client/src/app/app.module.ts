@@ -10,7 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './header/search/search.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ConfigComponent } from './config/config.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,7 @@ import { MapComponent } from './map/map.component';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './posts/post/post.component';
 import { CommentComponent } from './comment/comment.component';
+import { UserAvatarComponent } from './header/user-avatar/user-avatar.component';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'post', component: PostComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '' }
 ];
 
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     MapComponent,
     AboutComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
+    UserAvatarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],

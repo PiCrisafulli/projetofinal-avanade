@@ -1,0 +1,35 @@
+.container-profile {
+  background: url('./../../assets/Images/bg_white.png') fixed center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.user-banner {
+  width: 100%;
+  height: 500px;
+  background-size: cover!important;
+}
+
+.content-profile {
+  width: 1200px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-profile-posts {
+  align-content: flex-start;
+  width: 70%;
+  border: 1px solid red;
+}
+
+.content-profile aside {
+  align-content: flex-end;
+  width: 28%;
+  border: 1px solid red;
+}

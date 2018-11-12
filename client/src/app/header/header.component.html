@@ -1,3 +1,36 @@
-<p>
-  header works!
-</p>
+<header id="header" [style.background]="headerBackgroundColor">
+  <div class="content-header">
+    <a routerLink="/" class="logo-header">
+      <img src="./../../assets/Images/logo.png" />
+    </a>
+
+    <app-search></app-search>
+
+    <app-user-avatar></app-user-avatar>
+
+    <button class="btn-menu-header" #btnMenuHeader>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <button class="btn-config-header" #btnConfigHeader>
+      <img src="./../../assets/Images/icons/gear.svg" />
+    </button>
+
+    <button class="btn-help-header" #btnHelpHeader>
+      <img src="./../../assets/Images/icons/help.svg" />
+    </button>
+
+    <button class="btn-login-header" #btnLogin>
+      <span class="x">
+        <span class="x1"></span>
+        <span class="x2"></span>
+      </span>
+      <span class="btn-login-header-txt">Entrar</span>
+    </button>
+    <!--<button #logout>
+      <img src="./../../assets/Images/icons/sair.png" />Sair
+    </button>-->
+  </div>
+</header>

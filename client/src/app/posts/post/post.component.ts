@@ -8,11 +8,11 @@ declare var $: any;
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  constructor() {}
-  collapseComments: boolean = false;
+  constructor() { }
+  collapseComments = false;
   comments = [0, 1, 2, 3, 4];
   ngOnInit() {
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.collapsible').collapsible();
     });
   }

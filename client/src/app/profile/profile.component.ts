@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from './../header/header.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  userProfileStyles = {} = JSON.parse(localStorage.getItem('userProfileStyles'));
+  profileBackgroundImage: string;
 
-  ngOnInit() {
+  constructor(private headerService: HeaderService) { }
+
+  profileBannerBackground() {
+
   }
 
+  ngOnInit() {
+    if (!this.userProfileStyles) {
+      this.userProfileStyles = {
+        banner: 1,
+        headerColor: '#7d8cc4',
+      };
+
+      localStorage.setItem('userProfileStyles', JSON.stringify(this.userProfileStyles));
+    }
+
+    this.profileBackgroundImage = './../assets/Images/profile-banners/' + this.userProfileStyles.banner + '.png';
+
+    console.log(this.userProfileStyles);
+    console.log(this.profileBackgroundImage);
+  }
 }
