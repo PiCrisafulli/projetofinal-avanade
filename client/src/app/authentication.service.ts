@@ -67,13 +67,13 @@ export class AuthenticationService {
     let base;
     switch (method) {
       case 'post':
-        base = this.http.post(`http://localhost:3000/api/${type}`, user, {
-          headers: { Authorization: `Bearer ${this.token}` }
+        base = this.http.post(`http://localhost:3000/${type}`, user, {
+          headers: { Authorization: `${this.token}` }
         });
         break;
       case 'get':
         base = this.http.get(`http://localhost:3000/api/${type}`, {
-          headers: { Authorization: `Bearer ${this.token}` }
+          headers: { Authorization: `${this.token}` }
         });
         break;
     }

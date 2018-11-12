@@ -215,10 +215,14 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2b7ed1ceab20679a9e572563ad6f166ed3174770
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+<<<<<<< HEAD
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
@@ -232,3 +236,45 @@
 =======
 >>>>>>> cdaf04859870716ccc5efd2254e6176dc0f458b6
 {"message":"Servidor rodando em: 3000","level":"info"}
+=======
+>>>>>>> 2b7ed1ceab20679a9e572563ad6f166ed3174770
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:35:26.494Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044092} em 2018-11-12T17:35:26.496Z","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:40:47.765Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044436} em 2018-11-12T17:40:47.768Z","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:45:40.280Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044729} em 2018-11-12T17:45:40.283Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:46:40.243Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044783} em 2018-11-12T17:46:40.245Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:48:27.966Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044895} em 2018-11-12T17:48:27.968Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:49:24.521Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044955} em 2018-11-12T17:49:24.524Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:50:01.000Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542044955} em 2018-11-12T17:50:01.007Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:51:43.477Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045070} em 2018-11-12T17:51:43.480Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:55:02.680Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045291} em 2018-11-12T17:55:02.682Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:56:26.504Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045343} em 2018-11-12T17:56:26.507Z","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T17:58:23.902Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045480} em 2018-11-12T17:58:23.903Z","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T18:00:19.373Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045605} em 2018-11-12T18:00:19.375Z","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"usernama\":\"viajeiadm\",\"at\":\"2018-11-12T18:01:29.267Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542045676} em 2018-11-12T18:01:29.269Z","level":"info"}
+{"message":"Problema em: /users com os paramatros: {\"path\":\"/users\",\"params\":{},\"query\":{},\"payload\":{\"name\":\"fernandolucas\",\"email\":\"flsantos2014@gmail.com\",\"password\":\"123456\",\"typeLogin\":\"1\"},\"host\":\"localhost:3000\",\"at\":\"2018-11-12T18:01:29.281Z\",\"err\":{}}","level":"error"}

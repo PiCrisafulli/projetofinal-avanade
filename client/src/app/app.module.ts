@@ -26,14 +26,14 @@ import { EnvironmentService } from './services/environment.service';
 const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: LoginComponent
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'post', component: PostComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

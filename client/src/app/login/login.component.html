@@ -1,82 +1,138 @@
 <div class="background">
   <div class="container">
     <div class="row">
-      <img src="../../assets/Images/logo_white.png" class="logo">
+      <img src="../../assets/Images/logo_white.png" class="logo" />
     </div>
     <div class="row row-flex">
       <div class="col m6 col-banner">
-        <img src="../../assets/Images/viajei-banner.png" class="banner-img">
+        <img src="../../assets/Images/viajei-banner.png" class="banner-img" />
       </div>
       <div class="col m6 s12 col-login">
         <ul class="collapsible">
           <li class="active">
-            <div class="collapsible-header deep-purple lighten-1"><span>Entrar</span></div>
+            <div class="collapsible-header deep-purple lighten-1">
+              <span>Entrar</span>
+            </div>
             <div class="collapsible-body grey lighten-5">
               <div class="row">
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="email-login" type="email" class="validate" required>
+                      <input
+                        id="email-login"
+                        type="email"
+                        class="validate"
+                        required
+                      />
                       <label for="email-login">Email</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input id="password-login" type="password" class="validate" required>
+                      <input
+                        id="password-login"
+                        type="password"
+                        class="validate"
+                        required
+                      />
                       <label for="password-login">Senha</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s6">
                       <label>
-                        <input type="checkbox" class="filled-in">
+                        <input type="checkbox" class="filled-in" />
                         <span>Lembrar</span>
                       </label>
                     </div>
                     <div class="input-field col s6">
-                      <button class="btn right deep-purple" (click)="emailLogin()">Enviar</button>
+                      <button
+                        class="btn right deep-purple"
+                        (click)="emailLogin()"
+                      >
+                        Enviar
+                      </button>
                     </div>
                   </div>
                 </form>
               </div>
               <div class="row login-social">
                 <div class="col s6">
-                  <a href="#" (click)="facebookLogin()"><i class="fab fa-facebook-f tooltipped" data-position="bottom"
-                      data-tooltip="Entre com sua conta do Facebook"></i></a>
+                  <a href="#" (click)="facebookLogin()"
+                    ><i
+                      class="fab fa-facebook-f tooltipped"
+                      data-position="bottom"
+                      data-tooltip="Entre com sua conta do Facebook"
+                    ></i
+                  ></a>
                 </div>
                 <div class="col-s6">
-                  <a href="#" (click)="googleLogin()"><i class="fab fa-google tooltipped" data-position="bottom"
-                      data-tooltip="Entre com sua conta do Google"></i></a>
+                  <a href="#" (click)="googleLogin()"
+                    ><i
+                      class="fab fa-google tooltipped"
+                      data-position="bottom"
+                      data-tooltip="Entre com sua conta do Google"
+                    ></i
+                  ></a>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="collapsible-header deep-purple lighten-1"><span>Cadastrar</span></div>
+            <div class="collapsible-header deep-purple lighten-1">
+              <span>Cadastrar</span>
+            </div>
             <div class="collapsible-body grey lighten-5">
               <div class="row row-margin">
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12">
-                      <input ng-model="name" id="name" type="text" class="validate" required>
+                      <input
+                        [(ngModel)]="credentialsRegister.name"
+                        id="name"
+                        type="text"
+                        class="validate"
+                        name="name"
+                        required
+                      />
                       <label for="name">Nome</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input ng-model="email" id="email" type="email" class="validate" required>
+                      <input
+                        [(ngModel)]="credentialsRegister.email"
+                        id="email"
+                        type="email"
+                        class="validate"
+                        name="email"
+                        required
+                      />
                       <label for="email">Email</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="input-field col s12">
-                      <input ng-model="password" id="password" type="password" class="validate" required>
+                      <input
+                        name="password"
+                        [(ngModel)]="credentialsRegister.password"
+                        id="password"
+                        type="password"
+                        class="validate"
+                        required
+                      />
                       <label for="password">Senha</label>
                     </div>
                   </div>
                   <div class="row row-margin">
                     <div class="input-field col s12">
-                      <button class="btn right deep-purple" (click)="register()" routerLink="/cadastro">Cadastrar</button>
+                      <button
+                        class="btn right deep-purple"
+                        (click)="register()"
+                        routerLink="/cadastro"
+                      >
+                        Cadastrar
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -85,9 +141,7 @@
           </li>
         </ul>
       </div>
-
     </div>
     <app-footer></app-footer>
   </div>
-
 </div>

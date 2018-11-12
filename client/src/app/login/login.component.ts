@@ -1,5 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { AuthenticationService, TokenPayloadLogin, TokenPayloadRegister } from '../authentication.service';
+import {
+  AuthenticationService,
+  TokenPayloadLogin,
+  TokenPayloadRegister
+} from '../authentication.service';
 import { Router } from '@angular/router';
 declare var jquery: any;
 declare var $: any;
@@ -10,79 +14,84 @@ declare var $: any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   credentialsLogin: TokenPayloadLogin = {
     email: '',
-    password: '',
+    password: ''
   };
 
-  credentialsRegister: TokenPayloadRegister = {
+  credentialsRegister: UserRegister = {
     name: '',
     email: '',
     password: '',
-  }
+    typeLogin: '1'
+  };
 
   token: string;
 
-  defaultAlert = 'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
+  defaultAlert =
+    'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
 
-  constructor(private auth: AuthenticationService, private router: Router) {
-
-  }
+  constructor(private auth: AuthenticationService, private router: Router) {}
   //constructor() { }
 
   ngOnInit() {
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('.collapsible').collapsible();
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
       $('.tooltipped').tooltip();
     });
 
     this.getApiToken();
   }
 
-  facebookLogin() {
-
-  }
-  googleLogin() {
-
-  }
+  facebookLogin() {}
+  googleLogin() {}
   emailLogin() {
-    this.auth.login(this.credentialsLogin).subscribe((user) => {
-      console.log(user);
-    }, err => {
-      switch (err.code) {
-        default:
-          alert(this.defaultAlert);
-          break;
+    this.auth.login(this.credentialsLogin).subscribe(
+      user => {
+        console.log(user);
+      },
+      err => {
+        switch (err.code) {
+          default:
+            alert(this.defaultAlert);
+            break;
+        }
       }
-    });
+    );
   }
   register() {
-    this.auth.register(this.credentialsRegister).subscribe(() => {
-      this.router.navigateByUrl('/register');
-    }, err => {
-      switch (err.code) {
-        default:
-          alert(this.defaultAlert);
-          break;
+    console.log(this.credentialsRegister);
+    this.auth.register(this.credentialsRegister).subscribe(
+      () => {
+        this.router.navigateByUrl('/register');
+      },
+      err => {
+        switch (err.code) {
+          default:
+            alert(this.defaultAlert);
+            break;
+        }
       }
-    });
+    );
   }
   getApiToken() {
-    this.auth.getTokenFromApi().subscribe((token) => {
-      this.saveToken(token.token);
-      this.auth.setTokenString(token.token);
-      console.log(token.token);
-    }, err => {
-      switch (err.code) {
-        default:
-          alert(this.defaultAlert);
-          break;
+    this.auth.getTokenFromApi().subscribe(
+      token => {
+        this.saveToken(token.token);
+        this.auth.setTokenString(token.token);
+        console.log(token.token);
+      },
+      err => {
+        switch (err.code) {
+          default:
+            alert(this.defaultAlert);
+            break;
+        }
       }
-    });
+    );
   }
 
   private saveToken(token: string): void {
@@ -96,5 +105,4 @@ export class LoginComponent implements OnInit {
     }
     return this.token;
   }
-
 }
