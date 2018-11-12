@@ -566,7 +566,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { limitar, ignorar } = request.query;
-                        const resultado = await database.listar({}, {
+                        const resultado = await userObj.listar({}, {
                             limitar, ignorar
                         })
                         return resultado
@@ -599,7 +599,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const item = request.payload;
-                        const resultado = await database.cadastrar(item);
+                        const resultado = await userObj.cadastrar(item);
                         return resultado;
 
                     }
@@ -629,7 +629,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.remover(id);
+                        const result = await userObj.remover(id);
                         return result;
                     }
                     catch (error) {
@@ -657,7 +657,7 @@ async function main() {
                     try {
                         const { id } = request.params;
                         const content = request.payload;
-                        const result = await database.atualizar(id, content);
+                        const result = await userObj.atualizar(id, content);
                         return result;
                     }
                     catch (err) {
@@ -687,7 +687,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.listar({ _id: id });
+                        const result = await userObj.listar({ _id: id });
                         return result;
                     }
                     catch (err) {
@@ -717,7 +717,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { limitar, ignorar } = request.query;
-                        const resultado = await database.listar({}, {
+                        const resultado = await commentObj.listar({}, {
                             limitar, ignorar
                         })
                         return resultado
@@ -750,7 +750,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const item = request.payload;
-                        const resultado = await database.cadastrar(item);
+                        const resultado = await commentObj.cadastrar(item);
                         return resultado;
 
                     }
@@ -780,7 +780,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.remover(id);
+                        const result = await commentObj.remover(id);
                         return result;
                     }
                     catch (error) {
@@ -808,7 +808,7 @@ async function main() {
                     try {
                         const { id } = request.params;
                         const content = request.payload;
-                        const result = await database.atualizar(id, content);
+                        const result = await commentObj.atualizar(id, content);
                         return result;
                     }
                     catch (err) {
@@ -838,7 +838,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.listar({ _id: id });
+                        const result = await commentObj.listar({ _id: id });
                         return result;
                     }
                     catch (err) {
@@ -868,7 +868,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { limitar, ignorar } = request.query;
-                        const resultado = await database.listar({}, {
+                        const resultado = await placeObj.listar({}, {
                             limitar, ignorar
                         })
                         return resultado
@@ -901,7 +901,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const item = request.payload;
-                        const resultado = await database.cadastrar(item);
+                        const resultado = await placeObj.cadastrar(item);
                         return resultado;
 
                     }
@@ -931,7 +931,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.remover(id);
+                        const result = await placeObj.remover(id);
                         return result;
                     }
                     catch (error) {
@@ -959,7 +959,7 @@ async function main() {
                     try {
                         const { id } = request.params;
                         const content = request.payload;
-                        const result = await database.atualizar(id, content);
+                        const result = await placeObj.atualizar(id, content);
                         return result;
                     }
                     catch (err) {
@@ -989,7 +989,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.listar({ _id: id });
+                        const result = await placeObj.listar({ _id: id });
                         return result;
                     }
                     catch (err) {
@@ -1019,7 +1019,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { limitar, ignorar } = request.query;
-                        const resultado = await database.listar({}, {
+                        const resultado = await friendsObj.listar({}, {
                             limitar, ignorar
                         })
                         return resultado
@@ -1052,7 +1052,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const item = request.payload;
-                        const resultado = await database.cadastrar(item);
+                        const resultado = await friendsObj.cadastrar(item);
                         return resultado;
 
                     }
@@ -1082,7 +1082,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.remover(id);
+                        const result = await friendsObj.remover(id);
                         return result;
                     }
                     catch (error) {
@@ -1110,7 +1110,7 @@ async function main() {
                     try {
                         const { id } = request.params;
                         const content = request.payload;
-                        const result = await database.atualizar(id, content);
+                        const result = await friendsObj.atualizar(id, content);
                         return result;
                     }
                     catch (err) {
@@ -1140,7 +1140,7 @@ async function main() {
                 handler: async (request, h) => {
                     try {
                         const { id } = request.params;
-                        const result = await database.listar({ _id: id });
+                        const result = await friendsObj.listar({ _id: id });
                         return result;
                     }
                     catch (err) {

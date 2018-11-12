@@ -214,6 +214,7 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+<<<<<<< HEAD
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
@@ -228,3 +229,5 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+=======
+>>>>>>> cdaf04859870716ccc5efd2254e6176dc0f458b6
