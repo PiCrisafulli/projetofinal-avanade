@@ -209,13 +209,13 @@ async function main() {
                 }
             },
             {
-                path: '/api/login/{email}',
+                path: '/api/login/{id}',
                 method: 'GET',
                 handler: async (request, h) => {
                     try {
-                        const { email } = request.params;
+                        const { id } = request.params;
                         const result = await users.listar({
-                            email: email,
+                            _id: id,
                         });
                         return result;
                     } catch (err) {
@@ -352,22 +352,6 @@ async function main() {
 }
 
 module.exports = main()
-// [ ROUTES /// POSTS ] //
-const appPosts = require('./api/routes/postsRoutes');
-// [ ROUTES /// POSTS ] //
-const appComments = require('./api/routes/postsRoutes');
-// [ ROUTES /// POSTS ] //
-const appFriends = require('./api/routes/postsRoutes');
-// [ ROUTES /// POSTS ] //
-const appPlaces = require('./api/routes/postsRoutes');
-// [ ROUTES /// POSTS ] //
-const appUsers = require('./api/routes/postsRoutes');
-
-module.exports = appPosts()
-module.exports = appComments()
-module.exports = appFriends()
-module.exports = appPlaces()
-module.exports = appUsers()
 
 
 
