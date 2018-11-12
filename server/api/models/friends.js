@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
-const userSchema = require('./users');
 
 const friendsSchema = new mongoose.Schema({
   userId: mongoose.Types.ObjectId,
-  user: userSchema,
+  user: {
+    name: { type: String, required: true },
+    icon: { type: String, required: true },
+    email: { type: String, required: true },
+  },
   confirmed: { type: Boolean, required: true },
   publishedAt: { type: Date, required: true }
 });

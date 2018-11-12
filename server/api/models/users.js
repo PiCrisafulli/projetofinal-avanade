@@ -1,6 +1,4 @@
-const mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , ObjectId = Schema.ObjectId;
+const mongoose = require('mongoose');
 
 const userSchema = new Schema({
   name: { type: String, required: true },

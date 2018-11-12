@@ -79,28 +79,28 @@ module.exports = async () => {
 
   function validatePayload() {
     return {
-      description: Joi.string().required(),
-      link: Joi.string().min(3).max(200),
-      publishedAt: Joi.date().required(),
-      user: Joi.object().keys({
-        name: Joi.string().required(),
-        photo: Joi.string().required(),
-      }).required(),
-      comments: Joi.array().required(),
-      likes: Joi.number().required(),
+      postId: Joi.ObjectId().required(),
+      text: Joi.string().min(20).required(),
+      user: {
+        name: Joi.string().min(20).required(),
+        icon: Joi.string().required(),
+        email: Joi.string().min(20).required(),
+      }.required(),
+      publishedAt: Joi.Date().required(),
+      modifiedAt: Joi.Date().required()
     }
   }
   function validatePatchPayload() {
     return {
-      description: Joi.string(),
-      link: Joi.string().min(3).max(200),
-      publishedAt: Joi.date(),
-      user: Joi.object().keys({
-        name: Joi.string(),
-        photo: Joi.string(),
-      }),
-      comments: Joi.array(),
-      likes: Joi.number(),
+      postId: Joi.ObjectId(),
+      text: Joi.string().min(20),
+      user: {
+        name: Joi.string().min(20),
+        icon: Joi.string(),
+        email: Joi.string().min(20),
+      },
+      publishedAt: Joi.Date(),
+      modifiedAt: Joi.Date()
     }
   }
   try {
@@ -271,7 +271,7 @@ module.exports = async () => {
         }
       },
       {
-        path: '/posts/{id}',
+        path: '/comments/{id}',
         method: 'GET',
         handler: async (request, h) => {
           try {

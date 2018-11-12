@@ -5,7 +5,8 @@ const commentsSchema = new mongoose.Schema({
   text: { type: String, required: true },
   user: {
     name: { type: String, required: true },
-    icon: { type: String, required: true }
+    icon: { type: String, required: true },
+    email: { type: String, required: true }
   },
   publishedAt: { type: Date, required: true },
   modifiedAt: { type: Date, required: true }

@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
-const userSchema = require('./users');
 
 const placesSchema = new mongoose.Schema({
   userId: mongoose.Types.ObjectId,
-  user: userSchema,
+  user: {
+    name: { type: String, required: true },
+    icon: { type: String, required: true },
+    email: { type: String, required: true },
+  },
   country: { type: String, required: true },
   state: { type: String, required: true },
   city: { type: String, required: true },
