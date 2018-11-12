@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   }
+
   token: string;
 
   defaultAlert = 'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
@@ -49,8 +50,8 @@ export class LoginComponent implements OnInit {
 
   }
   emailLogin() {
-    this.auth.login(this.credentialsLogin).subscribe(() => {
-      this.router.navigateByUrl('/home');
+    this.auth.login(this.credentialsLogin).subscribe((user) => {
+      console.log(user);
     }, err => {
       switch (err.code) {
         default:
@@ -73,6 +74,8 @@ export class LoginComponent implements OnInit {
   getApiToken() {
     this.auth.getTokenFromApi().subscribe((token) => {
       this.saveToken(token.token);
+      this.auth.setTokenString(token.token);
+      console.log(token.token);
     }, err => {
       switch (err.code) {
         default:

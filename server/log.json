@@ -132,6 +132,16 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+<<<<<<< HEAD
+{"message":"A URL acessada foi: /api/register com os paramatros: {\"path\":\"/api/register\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T11:53:58.677Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542023604} em 2018-11-12T11:53:58.679Z","level":"info"}
+{"message":"A URL acessada foi: /api/users com os paramatros: {\"path\":\"/api/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T12:13:04.636Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542024777} em 2018-11-12T12:13:04.638Z","level":"info"}
+{"message":"A URL acessada foi: /api/users com os paramatros: {\"path\":\"/api/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T12:13:48.629Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542024823} em 2018-11-12T12:13:48.630Z","level":"info"}
+{"message":"A URL acessada foi: /api/users com os paramatros: {\"path\":\"/api/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T12:17:24.513Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1542025037} em 2018-11-12T12:17:24.514Z","level":"info"}
+=======
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
@@ -154,6 +164,7 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+>>>>>>> 0f6a9d5fee71024f527274a2609cfb443e1499ad
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
