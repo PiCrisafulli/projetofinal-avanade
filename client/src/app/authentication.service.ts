@@ -15,6 +15,17 @@ export interface TokenPayloadRegister {
     password: string;
 }
 export interface TokenPayloadProfile {
+    name: String,
+    icon: String,
+    email: String,
+    dateBirth: Date,
+    sex: String,
+    phoneNumber: String,
+    typeLogin: String,
+    password: String,
+    biography: String,
+    publishedAt: Date,
+    modifiedAt: Date
 }
 
 @Injectable({
@@ -43,17 +54,13 @@ export class AuthenticationService {
         window.localStorage.removeItem('user-token');
         this.router.navigateByUrl('/');
     }
-    private getToken() {
-        if (!this.token) {
-            this.token = localStorage.getItem('user-token');
+    public getTokenFromApi(): Observable<any> {
+        const userAcess = {
+            "username": "viajeiadm",
+            "password": "stv10293845*"
         }
-        return this.token;
+        return this.http.post('http://localhost:3000/login', userAcess);
     }
-    private saveToken(token: string): void {
-        localStorage.setItem('user-token', token);
-        this.token = token;
-    }
-
 
     private request(method: 'post' | 'get', type: 'login' | 'register', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {
         let base;
