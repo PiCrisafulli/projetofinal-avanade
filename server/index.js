@@ -1,12 +1,8 @@
 const { config } = require('dotenv');
 let swaggerHostConfig = {}
-/* if (process.env.NODE_ENV === 'production') {
-    config({ path: './config/.env.prod' });
 
-    swaggerHostConfig.host = process.env.HOST;
-    swaggerHostConfig.schemes = ['https'];
-
-} else { */ config({ path: './config/.env.dev' }) //}
+config({ path: './api/config/.env.dev' })
+console.log(config);
 const Joi = require('joi')
 const Hapi = require('hapi')
 
@@ -116,6 +112,7 @@ const USER_ACESS_DATA = {
     username: process.env.USER_USERNAME,
     password: process.env.USER_PASSWORD
 }
+console.log(USER_ACESS_DATA);
 
 const HapiJwt = require('hapi-auth-jwt2')
 
@@ -127,7 +124,7 @@ async function main() {
         const users = new DatabaseMongoDB(userModel)
 
         const app = new Hapi.Server({
-            port: process.env.PORT,
+            port: 3000,
             routes: {
                 cors: {
                     origin: ['*']
@@ -170,6 +167,31 @@ async function main() {
         app.route([
             //loginRoute,
             // registerRoute,
+            {
+                method: 'POST',
+                path: '/login',
+                handler: async (request, h) => {
+                    const { username, password } = request.payload
+                    if (username !== USER_ACESS_DATA.username || password !== USER_ACESS_DATA.password)
+                        return Boom.unauthorized('Usuário não autorizado')
+
+                    console.log(USER_ACESS_DATA.username);
+                    const dataToken = {
+                        username,
+                    }
+                    const token = Jwt.sign(dataToken, MY_SECRET_KEY)
+
+                    return { token }
+                },
+                config: {
+                    auth: false,
+                    tags: ['api'],
+                    description: 'Deve gerar um token para o usuário',
+                    validate: {
+                        payload: validateApiLogin(),
+                    }
+                }
+            },
             {
                 method: 'POST',
                 path: '/api/register',
