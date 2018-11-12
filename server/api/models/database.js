@@ -1,19 +1,5 @@
 const Mongoose = require('mongoose')
 
-/* const userSchema = new Mongoose.Schema({
-    name: { type: String, required: true },
-    icon: { type: String },
-    email: { type: String },
-    dateBirth: { type: Date },
-    sex: { type: String },
-    phoneNumber: { type: String },
-    typeLogin: { type: String },
-    password: { type: String },
-    biography: { type: String },
-    publishedAt: { type: Date },
-    modifiedAt: { type: Date }
-});
- */
 const userSchema = new Mongoose.Schema({
     name: { type: String },
     icon: { type: String },

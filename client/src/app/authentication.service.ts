@@ -38,7 +38,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient, private router: Router) { }
 
     public login(user: TokenPayloadLogin): Observable<any> {
-        return this.request('post', 'login', user);
+        return this.request('get', 'users', user);
     }
     public register(user: TokenPayloadRegister) {
         return this.request('post', 'register', user);
@@ -54,6 +54,9 @@ export class AuthenticationService {
         window.localStorage.removeItem('user-token');
         this.router.navigateByUrl('/');
     }
+    public setTokenString(token: string) {
+        this.token = token;
+    }
     public getTokenFromApi(): Observable<any> {
         const userAcess = {
             "username": "viajeiadm",
@@ -62,17 +65,17 @@ export class AuthenticationService {
         return this.http.post('http://localhost:3000/login', userAcess);
     }
 
-    private request(method: 'post' | 'get', type: 'login' | 'register', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {
+    private request(method: 'post' | 'get', type: 'login' | 'register' | 'users', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {
         let base;
         switch (method) {
             case 'post':
-                base = this.http.post(`http://localhost:3000/api/${type}`, user);
+                base = this.http.post(`http://localhost:3000/api/${type}`, user, { headers: { Authorization: `Bearer ${this.token}` } });
                 break;
             case 'get':
-                base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } })
+                base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.token}` } })
                 break;
         }
-
+        console.log(base)
         return base;
     }
 

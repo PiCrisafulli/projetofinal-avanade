@@ -209,13 +209,13 @@ async function main() {
                 }
             },
             {
-                path: '/api/login/{id}',
+                path: '/api/login/{email}',
                 method: 'GET',
                 handler: async (request, h) => {
                     try {
-                        const { id } = request.params;
+                        const { email } = request.params;
                         const result = await users.listar({
-                            _id: id,
+                            email: email,
                         });
                         return result;
                     } catch (err) {
