@@ -51,4 +51,6 @@ module.exports = [{
             payload: validate.validateUserPayload,
         }
     }
-}]
+},
+
+]

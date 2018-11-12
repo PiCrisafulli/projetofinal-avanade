@@ -1,18 +1,33 @@
 const Mongoose = require('mongoose')
 
-const userSchema = new Mongoose.Schema({
+/* const userSchema = new Mongoose.Schema({
     name: { type: String, required: true },
-    icon: { type: String, required: true },
-    email: { type: String, required: true },
-    dateBirth: { type: Date, required: true },
-    sex: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
-    typeLogin: { type: String, required: true },
-    password: { type: String, required: true },
-    biography: { type: String, required: true },
-    publishedAt: { type: Date, required: true },
-    modifiedAt: { type: Date, required: true }
+    icon: { type: String },
+    email: { type: String },
+    dateBirth: { type: Date },
+    sex: { type: String },
+    phoneNumber: { type: String },
+    typeLogin: { type: String },
+    password: { type: String },
+    biography: { type: String },
+    publishedAt: { type: Date },
+    modifiedAt: { type: Date }
 });
+ */
+const userSchema = new Mongoose.Schema({
+    name: { type: String },
+    icon: { type: String },
+    email: { type: String },
+    dateBirth: { type: Date },
+    sex: { type: String },
+    phoneNumber: { type: String },
+    typeLogin: { type: String },
+    password: { type: String },
+    biography: { type: String },
+    publishedAt: { type: Date },
+    modifiedAt: { type: Date }
+});
+
 const friendsSchema = new Mongoose.Schema({
     userId: Mongoose.Types.ObjectId,
     user: userSchema,
@@ -65,7 +80,7 @@ class DatabaseMongoDB {
     }
     static conectar() {
         Mongoose
-            .connect('mongodb://localhost:27017/socialnetwork', { useNewUrlParser: true })
+            .connect('mongodb://localhost:27017/socialnetwork2', { useNewUrlParser: true })
 
         const connection = Mongoose.connection
         connection.once('open', () => console.log('bd running'))
@@ -96,7 +111,6 @@ class DatabaseMongoDB {
     atualizar(id, item) {
         return this.connection.updateOne({ _id: id }, { $set: item })
     }
-
     listar(query = {}, pagination = { ignorar: 0, limitar: 10 }) {
         return this.connection
             .find(query)

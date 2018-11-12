@@ -26,12 +26,27 @@ function validateApiLogin() {
         password: Joi.string().max(100).required()
     }
 }
+/* function validateUserPayload() {
+    return {
+        name: Joi.string().required,
+        icon: Joi.string().required,
+        email: Joi.string().required,
+        dateBirth: Joi.date().required,
+        sex: Joi.string().required,
+        phoneNumber: Joi.string().required,
+        typeLogin: Joi.string().required,
+        password: Joi.string().min(3).max(20).required,
+        biography: Joi.string().required,
+        publishedAt: Joi.date().required,
+        modifiedAt: Joi.date().required,
+    };
+} */
 
 function validateUserPayload() {
     return {
-        name: Joi.string().required(),
+        name: Joi.string(),
         icon: Joi.string(),
-        email: Joi.string().required(),
+        email: Joi.string(),
         dateBirth: Joi.date(),
         sex: Joi.string(),
         phoneNumber: Joi.string(),
@@ -42,6 +57,7 @@ function validateUserPayload() {
         modifiedAt: Joi.date(),
     };
 }
+
 function validateUserPatchPayload() {
     return {
         name: Joi.string(),
@@ -53,8 +69,8 @@ function validateUserPatchPayload() {
         typeLogin: Joi.string(),
         password: Joi.string().min(3).max(20),
         biography: Joi.string(),
-        publishedAt: Joi.Date(),
-        modifiedAt: Joi.Date(),
+        publishedAt: Joi.date(),
+        modifiedAt: Joi.date(),
     };
 
 }
@@ -193,18 +209,49 @@ async function main() {
                 }
             },
             {
+                path: '/api/login/{id}',
+                method: 'GET',
+                handler: async (request, h) => {
+                    try {
+                        const { id } = request.params;
+                        const result = await users.listar({
+                            _id: id,
+                        });
+                        return result;
+                    } catch (err) {
+                        const item = getDataRequest(request, request.auth.credentials.username);
+                        logError(item.path, { ...item, err });
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Obtém o usuário desejado',
+                    notes: 'Pode obter o usuário desejado',
+
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, error) => {
+                            throw error;
+                        },
+                        params: {
+                            id: Joi.string().max(200).required(),
+                        },
+                    },
+                },
+            },
+            {
                 method: 'POST',
                 path: '/api/register',
                 handler: async (request, h) => {
                     try {
-                        const { id } = request.params;
-                        const result = await users.cadastrar({ _id: id });
+                        const item = request.payload;
+                        console.log(item);
+                        const result = await users.cadastrar(item);
                         return result;
                     }
-                    catch (err) {
-                        const stringLog = getDataRequest(request, request.auth.credentials.username);
-                        logError(stringLog.path, { ...stringLog, err })
-
+                    catch (error) {
+                        console.error('DEU RUIM', error);
                         return Boom.internal();
                     }
                 },
@@ -220,7 +267,75 @@ async function main() {
                         payload: validateUserPayload(),
                     }
                 }
-            }
+            },
+            {
+                method: 'GET',
+                path: '/api/users',
+                handler: async (request, h) => {
+                    try {
+                        const { limitar, ignorar } = request.query;
+                        const resultado = await users.listar({}, {
+                            limitar, ignorar
+                        })
+                        return resultado
+                    }
+                    catch (err) {
+                        const stringLog = getDataRequest(request, request.auth.credentials.username);
+                        logError(stringLog.path, { ...stringLog, err })
+
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Lista usuários paginados',
+                    notes: 'Pode paginar, com limite e itens a ignorar',
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, err) => {
+                            throw err
+                        },
+                        query: {
+                            limitar: Joi.number().integer().default(10),
+                            ignorar: Joi.number().integer().default(0)
+                        }
+
+                    }
+                }
+            },
+            {
+                path: '/api/users/{id}',
+                method: 'PATCH',
+                handler: async (request, h) => {
+                    try {
+                        const { id } = request.params
+                        const conteudo = request.payload
+                        const result = await users.atualizar(id, conteudo)
+                        return result
+                    }
+                    catch (err) {
+                        const stringLog = obterDadoRequest(request, request.auth.credentials.username);
+                        logError(stringLog.path, { ...stringLog, err })
+
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Alterar usuário',
+                    notes: 'Pode alterar qualquer dado do usuário',
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, err) => {
+                            throw err
+                        },
+                        payload: validateUserPatchPayload(),
+                        params: {
+                            id: Joi.string().min(3).max(200)
+                        }
+                    }
+                }
+            },
         ])
 
 
