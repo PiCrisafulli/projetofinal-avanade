@@ -702,6 +702,7 @@ async function main() {
             handler: async (request, h) => {
                try {
                   const item = request.payload;
+                  console.log(item, 'item');
                   const resultado = await userObj.cadastrar(item);
                   return resultado;
                } catch (err) {
