@@ -49,11 +49,13 @@ export class AuthenticationService {
         }
         return this.token;
     }
-    private saveToken(token: string): void {
-        localStorage.setItem('user-token', token);
-        this.token = token;
+    public getTokenFromApi(): Observable<any> {
+        const userAcess = {
+            "username": "viajeiadm",
+            "password": "stv10293845*"
+        }
+        return this.http.post('http://localhost:3000/login', userAcess);
     }
-
 
     private request(method: 'post' | 'get', type: 'login' | 'register', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {
         let base;

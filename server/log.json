@@ -119,3 +119,10 @@
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
 {"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"A URL acessada foi: /api/users/5be8f74f4a359f8860e0b7aa com os paramatros: {\"path\":\"/api/users/5be8f74f4a359f8860e0b7aa\",\"params\":{\"id\":\"5be8f74f4a359f8860e0b7aa\"},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T04:58:28.447Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1541988779} em 2018-11-12T04:58:28.448Z","level":"info"}
+{"message":"A URL acessada foi: /api/users com os paramatros: {\"path\":\"/api/users\",\"params\":{},\"query\":{},\"payload\":null,\"host\":\"localhost:3000\",\"username\":\"viajeiadm\",\"at\":\"2018-11-12T05:11:35.984Z\"}","level":"info"}
+{"message":"Token: {\"username\":\"viajeiadm\",\"iat\":1541988779} em 2018-11-12T05:11:35.986Z","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}
+{"message":"Servidor rodando em: 3000","level":"info"}

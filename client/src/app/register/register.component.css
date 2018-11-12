@@ -1,0 +1,112 @@
+.background {
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(to left, rgba(255,255,255, .15), rgba(255,255,255, .15)), url('../../assets/Images/bg-login.png') center center;
+  }
+  
+  .container {
+    width: 90%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .container {
+      width: 95%;
+    }
+  }
+  
+  .row {
+    margin-bottom: 15px;
+  }
+  
+  .row-flex {
+    display: flex;
+  }
+  
+  .logo {
+    max-height: 80px;
+  }
+  
+  .col-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+  }
+  
+  .banner-img {
+    width: 85%;
+  }
+  
+  .collapsible {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .banner-img {
+      width: 95%;
+    }
+    .collapsible {
+      max-width: 90%;
+    } 
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .col-banner {
+      display: none;
+    }
+  }
+  
+  .collapsible-header {
+    color: #fff;
+    font-size: 1.3em;
+    text-transform: uppercase;
+  }
+  
+  .collapsible-header span {
+    margin: 0 auto;
+    transition: all .3s;
+  }
+  
+  .collapsible-header span:hover {
+    color: #f0f0f0ef;
+  }
+  
+  .input-field {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .fab{
+    font-size:25px;
+    width: 50px;
+    height: 50px;
+    background-color:#fff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: var(--deep-purple);
+    transition: all .3s;
+  }
+  
+  .fab:hover {
+    color: #fff;
+    background-color: var(--deep-purple);
+  }
+  
+  .login-social,
+  .row-margin {
+    margin-bottom: 0;
+  }
+  
+  [type="checkbox"].filled-in:checked + span:not(.lever):after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--deep-purple);
+    background-color: var(--deep-purple);
+    z-index: 0;
+  }
+  

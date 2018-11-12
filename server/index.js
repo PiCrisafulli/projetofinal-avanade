@@ -76,8 +76,8 @@ function validateUserPatchPayload() {
 }
 
 //All Routes
-const loginRoute = require('./api/routes/loginRoute')
-const registerRoute = require('./api/routes/registerRoute')
+//const loginRoute = require('./api/routes/loginRoute')
+//const registerRoute = require('./api/routes/registerRoute')
 
 const swaggerConfig = {
     info: {

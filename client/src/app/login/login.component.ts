@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   }
+  token: string;
 
   defaultAlert = 'Houve um erro,nos contate. Acesse Sobre nós e mande-nos um e-mail para melhor ajudarmos';
 
@@ -37,6 +38,8 @@ export class LoginComponent implements OnInit {
     $(document).ready(function () {
       $('.tooltipped').tooltip();
     });
+
+    this.getApiToken();
   }
 
   facebookLogin() {
@@ -46,7 +49,6 @@ export class LoginComponent implements OnInit {
 
   }
   emailLogin() {
-    console.log("login happens");
     this.auth.login(this.credentialsLogin).subscribe(() => {
       this.router.navigateByUrl('/home');
     }, err => {
@@ -67,6 +69,29 @@ export class LoginComponent implements OnInit {
           break;
       }
     });
+  }
+  getApiToken() {
+    this.auth.getTokenFromApi().subscribe((token) => {
+      this.saveToken(token.token);
+    }, err => {
+      switch (err.code) {
+        default:
+          alert(this.defaultAlert);
+          break;
+      }
+    });
+  }
+
+  private saveToken(token: string): void {
+    localStorage.setItem('user-token', token);
+    this.token = token;
+  }
+
+  private getToken() {
+    if (!this.token) {
+      this.token = localStorage.getItem('user-token');
+    }
+    return this.token;
   }
 
 }
