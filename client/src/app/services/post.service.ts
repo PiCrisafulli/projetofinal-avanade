@@ -8,22 +8,20 @@ export class PostService {
   constructor(
     private http: HttpClient,
     private envService: EnvironmentService
-  ) { }
+  ) {}
+  URL = 'localhost:3000/';
+  getPosts() {
+    this.http.post(`http://localhost:3000/api/login`, {});
 
-  getPosts(params) {
-    return this.http.get(this.envService.env['host'] + 'album/pesquisarAlbum', {
-      params: params
+    return this.http.get(this.URL + 'api/posts', {
       // headers: new HttpHeaders().set('Authorization', token)
     });
   }
 
   createPost(params) {
-    return this.http.post(
-      this.envService.env['host'] + 'album/createAlbum',
-      params,
-      {
-        // headers: new HttpHeaders().set('Authorization', token)
-      }
-    );
+    console.log('aqui');
+    return this.http.post(this.URL + 'api/post', params, {
+      // headers: new HttpHeaders().set('Authorization', token)
+    });
   }
 }
