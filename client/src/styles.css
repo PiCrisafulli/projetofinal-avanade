@@ -1,2 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Open+Sans');
 @import url('reset.css');
+
+:root {
+  --deep-purple: #673ab7;
+  --grey: #424242;
+}
+
+.body {
+  overflow-x: hidden;
+}
+
+.title-default {
+  color: #0c3ea3;
+  font-weight: bold;
+}
+

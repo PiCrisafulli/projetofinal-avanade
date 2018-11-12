@@ -33,7 +33,7 @@ const placesSchema = new Mongoose.Schema({
 const commentsSchema = new Mongoose.Schema({
     postId: Mongoose.Types.ObjectId,
     text: { type: String, required: true },
-    user: usuarioSchema,
+    user: userSchema,
     publishedAt: { type: Date, required: true },
     modifiedAt: { type: Date, required: true }
 });
@@ -51,7 +51,7 @@ const postSchema = new Mongoose.Schema({
     description: { type: String, required: true },
     link: { type: String, required: true },
     publishedAt: { type: Date, required: true },
-    user: usuarioSchema,
+    user: userSchema,
     images: [imagesSchema],
     videos: [videosSchema],
     comments: [commentsSchema],

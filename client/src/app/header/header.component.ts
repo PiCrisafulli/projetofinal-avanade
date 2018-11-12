@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +8,10 @@ import { SearchComponent } from './search/search.component';
 
 export class HeaderComponent implements OnInit {
 
-  userProfileStyles = {} = JSON.parse(localStorage.getItem('userProfileStyles'));
+  userProfileStyles = {
+    headerColor: 'transparent'
+  };
+
   headerBackgroundColor = 'transparent';
   @Input() transparentHeader: boolean;
 
@@ -27,18 +29,21 @@ export class HeaderComponent implements OnInit {
         this.headerBackgroundColor = this.userProfileStyles.headerColor;
       }
     } else {
+      this.userProfileStyles = JSON.parse(localStorage.getItem('userProfileStyles'));
+      if (this.userProfileStyles.headerColor === 'transparent') {
+        this.userProfileStyles.headerColor = '#7D8CC4';
+      }
       this.headerBackgroundColor = this.userProfileStyles.headerColor;
+
+      localStorage.setItem('userProfileStyles', JSON.stringify(this.userProfileStyles));
     }
   }
 
   ngOnInit() {
-    if (!this.userProfileStyles) {
-      this.userProfileStyles.headerColor = '#7d8cc4';
-      this.headerBackgroundColor = this.userProfileStyles.headerColor;
-      localStorage.setItem('userProfileStyles', JSON.stringify(this.userProfileStyles));
-    } else {
-      this.headerBackgroundColor = this.userProfileStyles.headerColor;
-    }
+    this.userProfileStyles = JSON.parse(localStorage.getItem('userProfileStyles'));
+
+    this.headerBackgroundColor = this.userProfileStyles.headerColor;
+    localStorage.setItem('userProfileStyles', JSON.stringify(this.userProfileStyles));
 
     this.getScrollToHeader();
   }

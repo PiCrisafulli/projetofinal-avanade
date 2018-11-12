@@ -1,0 +1,242 @@
+const { config } = require('dotenv');
+let swaggerHostConfig = {}
+
+config({ path: './api/config/.env.dev' })
+console.log(config);
+const Joi = require('joi')
+const Hapi = require('hapi')
+
+const Vision = require('vision')
+const Inert = require('inert')
+const HapiSwagger = require('hapi-swagger')
+//const validate = require('./validates/validates');
+const Boom = require('boom')
+
+
+
+function validateHeaders() {
+    return Joi.object({
+        authorization: Joi.string().required()
+    }).unknown();
+};
+
+function validateApiLogin() {
+    return {
+        username: Joi.string().max(50).required(),
+        password: Joi.string().max(100).required()
+    }
+}
+
+function validateUserPayload() {
+    return {
+        name: Joi.string().required(),
+        icon: Joi.string(),
+        email: Joi.string().required(),
+        dateBirth: Joi.date(),
+        sex: Joi.string(),
+        phoneNumber: Joi.string(),
+        typeLogin: Joi.string(),
+        password: Joi.string().min(3).max(20),
+        biography: Joi.string(),
+        publishedAt: Joi.date(),
+        modifiedAt: Joi.date(),
+    };
+}
+function validateUserPatchPayload() {
+    return {
+        name: Joi.string(),
+        icon: Joi.string(),
+        email: Joi.string(),
+        dateBirth: Joi.date(),
+        sex: Joi.string(),
+        phoneNumber: Joi.string(),
+        typeLogin: Joi.string(),
+        password: Joi.string().min(3).max(20),
+        biography: Joi.string(),
+        publishedAt: Joi.Date(),
+        modifiedAt: Joi.Date(),
+    };
+
+}
+
+//All Routes
+const loginRoute = require('./api/routes/loginRoute')
+const registerRoute = require('./api/routes/registerRoute')
+
+const swaggerConfig = {
+    info: {
+        title: 'Api viajei',
+        version: '1.0',
+    },
+    lang: 'pt',
+    ...swaggerHostConfig
+}
+
+//modulo de logs
+const winston = require('winston')
+const log = winston.createLogger({
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'log.json', level: 'info' }),
+        new winston.transports.File({ filename: 'error.json', level: 'error' })
+    ]
+})
+
+const info = log.info
+const error = log.error
+const logError = (url, params) => {
+    error(`Problema em: ${url} com os paramatros: ${JSON.stringify(params)}`)
+}
+const logRequest = (url, params) => {
+    info(`A URL acessada foi: ${url} com os paramatros: ${JSON.stringify(params)}`)
+}
+
+const getDataRequest = (request, data) => {
+    const myParams = { path, params, query, payload, headers: { host } } = request;
+    const stringLog = {
+        path,
+        params,
+        query,
+        payload,
+        host,
+        username: data.username,
+        at: new Date().toISOString()
+    };
+    return stringLog;
+}
+
+//importamos o JWT, para gerenciar tokens
+const Jwt = require('jsonwebtoken');
+const MY_SECRET_KEY = process.env.JWT_KEY;
+const USER_ACESS_DATA = {
+    username: process.env.USER_USERNAME,
+    password: process.env.USER_PASSWORD
+}
+console.log(USER_ACESS_DATA);
+
+const HapiJwt = require('hapi-auth-jwt2')
+
+const DatabaseMongoDB = require('./api/models/database')
+
+async function main() {
+    try {
+        const { userModel } = DatabaseMongoDB.conectar()
+        const users = new DatabaseMongoDB(userModel)
+
+        const app = new Hapi.Server({
+            port: 3000,
+            routes: {
+                cors: {
+                    origin: ['*']
+                },
+            }
+        });
+
+        await app.register([
+            HapiJwt,
+            Vision,
+            Inert,
+            {
+                plugin: HapiSwagger,
+                options: swaggerConfig,
+            },
+        ]);
+
+        app.auth.strategy('jwt', 'jwt', {
+            key: MY_SECRET_KEY,
+            verifyOptions: {
+                algorithms: ['HS256']
+            },
+            validate: (data, request, callback) => {
+                try {
+                    const stringLog = getDataRequest(request, data);
+                    logRequest(path, { ...stringLog })
+                    info(`Token: ${JSON.stringify(data)} em ${new Date().toISOString()}`)
+                }
+                catch (err) {
+                    error(err)
+                }
+                return {
+                    isValid: true
+                }
+            }
+        })
+        app.auth.default('jwt')
+
+
+        app.route([
+            //loginRoute,
+            // registerRoute,
+            {
+                method: 'POST',
+                path: '/login',
+                handler: async (request, h) => {
+                    const { username, password } = request.payload
+                    if (username !== USER_ACESS_DATA.username || password !== USER_ACESS_DATA.password)
+                        return Boom.unauthorized('Usuário não autorizado')
+
+                    console.log(USER_ACESS_DATA.username);
+                    const dataToken = {
+                        username,
+                    }
+                    const token = Jwt.sign(dataToken, MY_SECRET_KEY)
+
+                    return { token }
+                },
+                config: {
+                    auth: false,
+                    tags: ['api'],
+                    description: 'Deve gerar um token para o usuário',
+                    validate: {
+                        payload: validateApiLogin(),
+                    }
+                }
+            },
+            {
+                method: 'POST',
+                path: '/api/register',
+                handler: async (request, h) => {
+                    try {
+                        const { id } = request.params;
+                        const result = await users.cadastrar({ _id: id });
+                        return result;
+                    }
+                    catch (err) {
+                        const stringLog = getDataRequest(request, request.auth.credentials.username);
+                        logError(stringLog.path, { ...stringLog, err })
+
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Cadastra um usuário',
+                    notes: 'Faz o cadastro de um usuário',
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, err) => {
+                            throw err;
+                        },
+                        payload: validateUserPayload(),
+                    }
+                }
+            }
+        ])
+
+
+        await app.start()
+        info(`Servidor rodando em: ${app.info.port}`)
+
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        return app;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = main()
+
+
+

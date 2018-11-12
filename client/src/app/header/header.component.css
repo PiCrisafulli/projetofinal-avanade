@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   color: white;
-  z-index: 9999; /* não é lindo, mas "garante" que o header sempre apareça ;) */
+  z-index: 9998; /* não é lindo, mas "garante" que o header sempre apareça ;) */
 }
 
 .content-header {

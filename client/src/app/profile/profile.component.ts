@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HeaderService } from './../header/header.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class ProfileComponent implements OnInit {
 
   userProfileStyles = {} = JSON.parse(localStorage.getItem('userProfileStyles'));
   profileBackgroundImage: string;
+  @Input() loading = true;
 
   constructor(private headerService: HeaderService) { }
 
@@ -29,7 +30,8 @@ export class ProfileComponent implements OnInit {
 
     this.profileBackgroundImage = './../assets/Images/profile-banners/' + this.userProfileStyles.banner + '.png';
 
-    console.log(this.userProfileStyles);
-    console.log(this.profileBackgroundImage);
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 }

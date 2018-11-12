@@ -3,23 +3,33 @@
     <div class="card">
       <div class="card-header">
         <img
-          class="materialboxed"
+          class="circle responsive-img"
           src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
           alt="photo user"
         />
         <div class="info">
-          <div class="name">Arthur Dent</div>
+          <div class="name title-default">Arthur Dent</div>
           <span>mochileiro lvl 30</span>
         </div>
       </div>
       <div class="card-image">
         <img
+          *ngIf="image"
           class="materialboxed"
           src="../../assets/Images/foto_mantiqueira2.jpg"
         />
+        <iframe
+          *ngIf="video"
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/wmZeOxAO1bo"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
       <div class="card-content">
-        <p>
+        <p *ngIf="text">
           I am a very simple card. I am good at containing small bits of
           information. I am convenient because I require little markup to use
           effectively.
@@ -27,7 +37,7 @@
       </div>
       <div class="card-action">
         <div class="card-footer">
-          <div class="likes">
+          <div class="likes pulse">
             <i class="fas fa-heart"></i> <span class="count">20</span>
           </div>
           <div class="comments" (click)="open()" style="cursor: pointer">
@@ -35,14 +45,681 @@
           </div>
         </div>
       </div>
-      <ul class="collapsible">
+      <ul class="collapsible{{index}}">
         <li>
-          <!-- <div class="collapsible-header">First</div> -->
           <div class="collapsible-body">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea
+                      id="textarea1"
+                      class="materialize-textarea"
+                    ></textarea>
+                    <label for="textarea1">Adicionar comentário</label>
+                  </div>
+                  <button
+                    class="btn waves-effect waves-light right blue darken-4"
+                    type="button"
+                    name="action"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </div>
             <div *ngFor="let item of comments"><app-comment></app-comment></div>
           </div>
         </li>
       </ul>
     </div>
   </div>
+
+  <!-- post2 -->
+  <!--
+    <div class="col s12">
+
+
+
+      <div class="card">
+
+
+
+
+        <div class="card-header">
+
+
+
+
+          <img
+
+
+
+
+            class="circle responsive-img"
+
+
+
+
+            src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+
+
+
+
+            alt="photo user"
+
+
+
+
+          />
+
+
+
+
+          <div class="info">
+
+
+
+
+            <div class="name title-default">Arthur Dent</div>
+
+
+
+
+            <span>mochileiro lvl 30</span>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="card-content">
+
+
+
+
+          <p>
+
+
+
+
+            Apenas texto aqui. I am a very simple card. I am good at containing
+
+
+
+
+            small bits of information. I am convenient because I require little
+
+
+
+
+            markup to use effectively.
+
+
+
+
+          </p>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="card-action">
+
+
+
+
+          <div class="card-footer">
+
+
+
+
+            <div class="likes pulse">
+
+
+
+
+              <i class="fas fa-heart"></i> <span class="count">20</span>
+
+
+
+
+            </div>
+
+
+
+
+            <div class="comments" (click)="open()" style="cursor: pointer">
+
+
+
+
+              <i class="far fa-comment-dots"></i><span class="count">5</span>
+
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+        <ul class="collapsible">
+
+
+
+
+          <li>
+
+
+
+
+            <div class="collapsible-body">
+
+
+
+
+              <div class="row">
+
+
+
+
+                <form class="col s12">
+
+
+
+
+                  <div class="row">
+
+
+
+
+                    <div class="input-field col s12">
+
+
+
+
+                      <textarea
+
+
+
+
+                        id="textarea1"
+
+
+
+
+                        class="materialize-textarea"
+
+
+
+
+                        placeholder="Comente aqui..."
+
+
+
+
+                      ></textarea>
+
+
+
+
+                      <label for="textarea1">Adicionar comentário</label>
+
+
+
+
+                    </div>
+
+
+
+
+                    <button
+
+
+
+
+                      class="btn waves-effect waves-light right blue darken-4"
+
+
+
+
+                      type="button"
+
+
+
+
+                      name="action"
+
+
+
+
+                    >
+
+
+
+
+                      Enviar
+
+
+
+
+                    </button>
+
+
+
+
+                  </div>
+
+
+
+
+                </form>
+
+
+
+
+              </div>
+
+
+
+
+              <div *ngFor="let item of comments"><app-comment></app-comment></div>
+
+
+
+
+            </div>
+
+
+
+
+          </li>
+
+
+
+
+        </ul>
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+  -->
+
+  <!-- post 3 -->
+  <!--
+    <div class="col s12">
+
+
+
+      <div class="card">
+
+
+
+
+        <div class="card-header">
+
+
+
+
+          <img
+
+
+
+
+            class="circle responsive-img"
+
+
+
+
+            src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+
+
+
+
+            alt="photo user"
+
+
+
+
+          />
+
+
+
+
+          <div class="info">
+
+
+
+
+            <div class="name title-default">Arthur Dent</div>
+
+
+
+
+            <span>mochileiro lvl 30</span>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="card-image">
+
+
+
+
+          <iframe
+
+
+
+
+            width="100%"
+
+
+
+
+            height="315"
+
+
+
+
+            src="https://www.youtube.com/embed/wmZeOxAO1bo"
+
+
+
+
+            frameborder="0"
+
+
+
+
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+
+
+
+
+            allowfullscreen
+
+
+
+
+          ></iframe>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="card-content">
+
+
+
+
+          <p>
+
+
+
+
+            I am a very simple card. I am good at containing small bits of
+
+
+
+
+            information. I am convenient because I require little markup to use
+
+
+
+
+            effectively.
+
+
+
+
+          </p>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="card-action">
+
+
+
+
+          <div class="card-footer">
+
+
+
+
+            <div class="likes pulse">
+
+
+
+
+              <i class="fas fa-heart"></i> <span class="count">20</span>
+
+
+
+
+            </div>
+
+
+
+
+            <div class="comments" (click)="open()" style="cursor: pointer">
+
+
+
+
+              <i class="far fa-comment-dots"></i><span class="count">5</span>
+
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+        <ul class="collapsible">
+
+
+
+
+          <li>
+
+
+
+
+            <div class="collapsible-body">
+
+
+
+
+              <div class="row">
+
+
+
+
+                <form class="col s12">
+
+
+
+
+                  <div class="row">
+
+
+
+
+                    <div class="input-field col s12">
+
+
+
+
+                      <textarea
+
+
+
+
+                        id="textarea1"
+
+
+
+
+                        class="materialize-textarea"
+
+
+
+
+                        placeholder="Comente aqui..."
+
+
+
+
+                      ></textarea>
+
+
+
+
+                      <label for="textarea1">Adicionar comentário</label>
+
+
+
+
+                    </div>
+
+
+
+
+                    <button
+
+
+
+
+                      class="btn waves-effect waves-light right blue darken-4"
+
+
+
+
+                      type="button"
+
+
+
+
+                      name="action"
+
+
+
+
+                    >
+
+
+
+
+                      Enviar
+
+
+
+
+                    </button>
+
+
+
+
+                  </div>
+
+
+
+
+                </form>
+
+
+
+
+              </div>
+
+
+
+
+              <div *ngFor="let item of comments"><app-comment></app-comment></div>
+
+
+
+
+            </div>
+
+
+
+
+          </li>
+
+
+
+
+        </ul>
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+  -->
 </div>

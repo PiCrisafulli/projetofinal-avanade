@@ -1,13 +1,142 @@
+<div class="loading" loading='true' *ngIf='loading'>
+  <img src="./../../assets/Images/icons/loading.svg" />
+</div>
+
 <!-- HEADER -->
 <app-header transparentHeader="true"></app-header>
 
-<!-- USER BANNER -->
-<div class="user-banner" [style.background]="'url(' + profileBackgroundImage + ')'"></div>
 
-<!-- PROFILE -->
-<div class="container-profile">
-  <div class="content-profile">
-    <div class="content-profile-posts"></div>
-    <aside></aside>
+
+<div class="profile-bg">
+
+  <div class="profile">
+    <!-- USER BANNER -->
+    <div class="user-banner" [style.background]="'url(' + profileBackgroundImage + ')'"></div>
+
+    <div class="row-full container-header-user">
+      <div class="container-header-user-info">
+        <div class="centered-el">
+          <div class="container-avatar-user">
+            <img src="./../../assets/Images/mocked/profiles/avatar1.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-full">
+      <div class="centered-content-profile">
+        <div class="title-profile">
+          <h6>Arthur P. Dent</h6>
+
+          <span class="profile-user-message">Thanks for all the fish!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-full">
+      <div class="centered-content-profile">
+        <div class="container-boxes-profile content-flex-space-around">
+
+          <div class="box">
+            <div class="row-full">
+              <div class="ico-box">
+                <div class="ct-img-ico-box">
+                  <img src="./../../assets/Images/icons/profile1.png" />
+                </div>
+                <div class="ct-txt-ico-box">
+                  <span class="row-full num-ico-box">42</span>
+                  <span class="row-full tit-ico-box">AMIGOS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-full">
+              <button class="btn-ico-box">VER AMIGOS</button>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="row-full">
+              <div class="ico-box">
+                <div class="ct-img-ico-box">
+                  <img src="./../../assets/Images/icons/profile2.png" />
+                </div>
+                <div class="ct-txt-ico-box">
+                  <span class="row-full num-ico-box">42</span>
+                  <span class="row-full tit-ico-box">LOCAIS FAVORITOS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-full">
+              <button class="btn-ico-box">VER LOCAIS FAVORITOS</button>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="row-full">
+              <div class="ico-box">
+                <div class="ct-img-ico-box">
+                  <img src="./../../assets/Images/icons/profile3.png" />
+                </div>
+                <div class="ct-txt-ico-box">
+                  <span class="row-full num-ico-box">65</span>
+                  <span class="row-full tit-ico-box">AVALIAÇÕES</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-full">
+              <button class="btn-ico-box">VER AVALIAÇÕES</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row-full">
+      <div class="centered-content-profile">
+        <div class="content-profile content-flex-space-between">
+
+          <div class="content-profile-posts">
+
+            <div class="profile-post">
+              <a href="" class="row-full profile-post-username">Arthur P. Dent</a>
+              <div class="row-full container-image-post-profile">
+                <img src="./../../../assets/Images/mocked/posts/1.png" />
+              </div>
+
+              <div class="row-full text-post-profile">
+                Morbi imperdiet tristique libero vel imperdiet. Praesent non risus aliquam, laoreet mauris et, aliquam
+                ligula.
+                Integer tortor turpis, efficitur in iaculis at, sagittis a ante. Duis consequat massa pulvinar, viverra
+                massa ullamcorper, efficitur nibh.
+                Quisque augue metus, fringilla sit amet lorem a, malesuada fringilla mauris.
+                In accumsan at nisl interdum tristique. Suspendisse sed erat vel mi faucibus facilisis finibus eu
+                augue.
+              </div>
+
+              <div class="row-full container-btn-like-post-profile">
+                <div class="container-btn-like">
+                  <button class="btn-like-post-profile">♥</button>
+                  <span class="like-count">42</span>
+                </div>
+
+                <div class="container-share">
+                  <button class="btn-like-post-profile">Compartilhar</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <aside>
+
+          </aside>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

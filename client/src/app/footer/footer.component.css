@@ -2,3 +2,13 @@ footer {
   text-align: center;
   color: #ececec;
 }
+
+footer a {
+  color: #fff;
+  font-weight: 600;
+  transition: all .3s;
+}
+
+footer a:hover {
+  color: #f0f0f0ef;
+}
