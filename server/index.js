@@ -311,7 +311,7 @@ async function main() {
         app.route([
             {
                 method: 'POST',
-                path: '/login',
+                path: '/api/login',
                 handler: async (request, h) => {
                     const { username, password } = request.payload;
                     if (
@@ -334,6 +334,43 @@ async function main() {
                     description: 'Deve gerar um token para o usuário',
                     validate: {
                         payload: validateApiLogin()
+                    }
+                }
+            },
+            {
+                path: '/login/{id}',
+                method: 'GET',
+                handler: async (request, h) => {
+                    try {
+                        const { id } = request.params;
+                        const result = await users.listar({
+                            _id: id
+                        });
+                        return result;
+                    } catch (err) {
+                        const item = getDataRequest(
+                            request,
+                            request.auth.credentials.username
+                        );
+                        logError(item.path, { ...item, err });
+                        return Boom.internal();
+                    }
+                },
+                config: {
+                    tags: ['api'],
+                    description: 'Obtém o usuário desejado',
+                    notes: 'Pode obter o usuário desejado',
+
+                    validate: {
+                        headers: validateHeaders(),
+                        failAction: (request, h, error) => {
+                            throw error;
+                        },
+                        params: {
+                            id: Joi.string()
+                                .max(200)
+                                .required()
+                        }
                     }
                 }
             },

@@ -62,17 +62,17 @@ export class AuthenticationService {
             "username": "viajeiadm",
             "password": "stv10293845*"
         }
-        return this.http.post('http://localhost:3000/api/login', userAcess);
+        return this.http.post('http://localhost:3000/login', userAcess);
     }
 
     private request(method: 'post' | 'get', type: 'login' | 'register' | 'users', user?: TokenPayloadLogin | TokenPayloadProfile | TokenPayloadRegister): Observable<any> {
         let base;
         switch (method) {
             case 'post':
-                base = this.http.post(`http://localhost:3000/api/${type}`, user, { headers: { Authorization: `Bearer ${this.token}` } });
+                base = this.http.post(`http://localhost:3000/${type}`, user, { headers: { Authorization: `Bearer ${this.token}` } });
                 break;
             case 'get':
-                base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.token}` } })
+                base = this.http.get(`http://localhost:3000/${type}`, { headers: { Authorization: `Bearer ${this.token}` } })
                 break;
         }
         console.log(base)
